@@ -1,0 +1,33 @@
+<div class="col-md-12">
+    <h3 class="mb-3 text-center">Create Certificate</h3>
+
+    <div class="form-group row">
+      <label class="control-label col-md-12"><strong>Certificate name</strong></label>
+      <input type="text" [(ngModel)]="Certificate.title" class="form-control">
+    </div>
+
+    <div class="form-group row">
+      <label class="control-label col-md-12"><strong>Artist</strong></label>
+      <select  class="browser-default custom-select" [(ngModel)]="Artist.id">
+        <option  *ngFor="let a of Artists" [value]="a.id">{{a.name}}</option>
+        <option [value] = "-1">Create new</option>
+      </select>
+    </div>
+
+
+    <div *ngIf="this.Artist.id==-1" class="form-group row">
+        <label class="control-label col-md-12"><strong>New Artist Name</strong></label>
+        <input type="text" [(ngModel)]="Artist.name" class="form-control">
+      </div>
+
+    <div class="form-group">
+        <label for="file">Choose File</label>
+        <input type="file"
+               (change)="handleFileInput($event)">
+    </div>
+    
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" (click)="createCertificate()">Create Certificate</button>
+    </div>
+
+ </div>

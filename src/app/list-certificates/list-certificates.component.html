@@ -1,0 +1,21 @@
+<div *ngIf="Certificates.length !== 0">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Artist</th>
+                    <th scope="col">Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let certificate of Certificates">
+                    <td>{{certificate.title}}</td>
+                    <td>{{certificate.artist.name}}</td>
+                    <td><img src="{{'http://localhost:8080/certificate/file/' +certificate.id }}"  style="max-height: 100px; max-width: 100px;" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
